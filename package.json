@@ -8,7 +8,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "pretty-quick --pattern \"**/*.*(ts|tsx|json)\" --staged",
+    "format:all": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" --staged",
     "start": "nest build --webpack --webpackPath webpack-hmr.config.js",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -44,6 +45,7 @@
     "husky": "^4.3.0",
     "jest": "26.4.2",
     "prettier": "^1.19.1",
+    "pretty-quick": "^3.0.2",
     "start-server-webpack-plugin": "^2.2.5",
     "supertest": "^4.0.2",
     "ts-jest": "26.2.0",
