@@ -8,7 +8,8 @@
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "pretty-quick --pattern \"**/*.*(ts|tsx|json)\" --staged",
+    "format:all": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\" --staged",
     "start": "nest build --webpack --webpackPath webpack-hmr.config.js",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
