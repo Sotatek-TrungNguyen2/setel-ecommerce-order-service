@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppService } from './app.service';
 import { AppConfigModule, AppConfigService } from '@/app-config';
+import { OrderModule } from '@/orders';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { AppConfigModule, AppConfigService } from '@/app-config';
       useFactory: (config: AppConfigService) => config.getMongoOption(),
       inject: [AppConfigService],
     }),
+    OrderModule,
   ],
   controllers: [AppController],
   providers: [AppService],
