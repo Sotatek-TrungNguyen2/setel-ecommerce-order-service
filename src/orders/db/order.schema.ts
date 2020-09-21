@@ -1,4 +1,5 @@
 import * as mongoose from 'mongoose';
+import { Currency } from '@/orders/types/order.constant';
 
 export const OrderSchema = new mongoose.Schema(
   {
@@ -40,10 +41,11 @@ export const OrderSchema = new mongoose.Schema(
     ],
     currency: {
       type: String,
-      enum: ['VND', 'USD'],
-      default: 'VND',
+      enum: Object.values(Currency),
+      default: Currency.VND,
     },
     totalAmount: Number,
+    trackingUID: String,
     state: {
       type: String,
       enum: ['created', 'staled', 'cancelled', 'confirmed', 'delivered'],

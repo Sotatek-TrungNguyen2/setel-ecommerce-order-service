@@ -6,6 +6,7 @@ export interface IOrder extends Document {
   recipient: IRecipient;
   cart: IItem[];
   totalCost: number;
+  trackingUID: string;
   updatedAt: string;
 }
 
@@ -19,7 +20,7 @@ export interface IRecipient {
   id: string;
   name: string;
   phone: string;
-  data: string;
+  address: string;
 }
 
 export interface IItem {
